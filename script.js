@@ -79,7 +79,7 @@ function showWeatherData(data) {
     data.daily.forEach((day, idx) => {
         if (idx == 0) {
             currentTempEl.innerHTML = `
-            <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
+            <img src="https://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
             <div class="other">
                 <div class="day">${window.moment(day.dt*1000).format('dddd')}</div>
                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
@@ -91,7 +91,7 @@ function showWeatherData(data) {
             otherDayForcast += `
             <div class="weather-forecast-item">
                 <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
-                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
+                <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
                 <div class="temp">Day - ${day.temp.day}&#176;C</div>
             </div>            
@@ -145,7 +145,7 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event) 
 function getAirIndexData(lat, lon) {
     let latitude = lat;
     let longitude = lon;
-    fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`).
+    fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`).
     then(res => res.json()).then(data => {
         console.log(data)
         displayAirIndex(data);
@@ -196,7 +196,7 @@ async function getHumidityData(lat, lon) {
     const ylabels = [];
     let latitude = lat;
     let longitude = lon;
-    let response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`);
+    let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`);
     let json = await response.json();
     console.log(json);
 
